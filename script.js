@@ -6,14 +6,15 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoibWl6aCIsImEiOiJjajZqcjhjdHcxOHA1MnltcWtrNG5pcWgzIn0.OBBHFGPlu9LpDJkWC6sPQg'
 }).addTo(mymap);
 
-mymap.locate({setView: true, maxZoom: 14});
+mymap.locate({setView: true, maxZoom: 13});
 
 var geojsonMarkerOptions = {
     radius: 7.6,
+    color: "black",
     fillColor: "black",
-    weight: 0,
+    weight: 0.5,
     opacity: 1,
-    fillOpacity: 0.6
+    fillOpacity: 1
 };
 
 function onLocationFound(e) {
@@ -47,28 +48,28 @@ var customLayer = L.geoJson(null, {
     
     style: function(feature) {
     if (feature.properties.SPECIES_COMMON=='Crabapple') {
-    		return { fillColor: "orange" };
+    		return { fillColor: "#60a917" };
     	}
     	else if (feature.properties.SPECIES_COMMON=='Cherry, Sour') {    	
-    		return { fillColor: "red" };
+    		return { fillColor: "#e51400" };
 		}
     	else if (feature.properties.SPECIES_COMMON=='Saskatoon, Tree Form') {    	
-    		return { fillColor: "purple" };
+    		return { fillColor: "#aa00ff" };
 		}
     	else if (feature.properties.SPECIES_COMMON=='Apple') {    	
-    		return { fillColor: "pink" };
+    		return { fillColor: "#a4c400" };
 		}
     	else if ((feature.properties.SPECIES_COMMON=='Plum, Chinese') | (feature.properties.SPECIES_COMMON=='Plum, Hybrid')) {    	
-    		return { fillColor: "yellow" };
+    		return { fillColor: "#f472d0" };
 		}
     	else if (feature.properties.SPECIES_COMMON=='Pear, Ussurian') {    	
-    		return { fillColor: "green" };
+    		return { fillColor: "#e3c800" };
 		}
     	else if (feature.properties.CULTIVAR=='Apricot') {    	
-    		return { fillColor: "blue" };
+    		return { fillColor: "#f0a30a" };
 		}
    	 	else {
-    		return { fillColor: "white" };
+    		return { fillColor: "black" };
     	}
 	}
 	
